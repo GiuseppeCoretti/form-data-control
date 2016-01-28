@@ -40,9 +40,7 @@ function createOptionYear() {
 
 function optionAttr(giorno, i) {
     var giornoDis = giorno[i];
-    var disattr = document.createAttribute("disabled");
-    disattr.value = "disabled";
-    giornoDis.setAttributeNode(disattr);
+    giornoDis.setAttribute("disabled", "disabled");
 }
 
 function disable() {
