@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Form</title>
+	<meta charset="utf-8" />
+    <script src="form-data-control.js"></script>
+    <style>
+        form{
+            width: 300px;
+            height: 250px;
+            margin: 0 auto;
+            padding: 50px;
+            border: solid 1px;
+        }
+        form label, form section label, form section span{
+            display: block;
+            margin-top: 10px;
+        }
+        form section label{
+            float: left;
+            margin-left: 10px;
+        }
+        #txtNome, #txtCognome{
+            display: block;
+            margin-top: 10px;
+        }
+        button{
+            width: 100px;
+            height: 30px;
+        }
+        #btnMostra{
+            display: block;
+            position: relative;
+            top: 5%;
+            left: 75%;
+        }
+        #btnMostra2{
+            display: block;
+            position: relative;
+            top: 10%;
+            left: 75%;
+        }
+    </style>
+</head>
+<body>
+    <form name="myform" id="frmAnagrafica">
+        <label>
+            Nome:
+            <input type="text" id="txtNome" placeholder="Nome" />
+        </label>
+        <label>
+            Cognome:
+            <input type="text" id="txtCognome" placeholder="Cognome" />
+        </label>
+        <section name="giorno" onchange="disable()">
+            <span>Data di nascita:</span>
+            <label>
+                <span>Giorno</span>
+                <select name="Giorno" id="cmbGiorno"></select>
+            </label>
+            <label>
+                <span>Mese</span>
+                <select name="Mese" id="cmbMese"></select>
+            </label>
+            <label>
+                <span>Anno</span>
+                <select name="Anno" id="cmbAnno"></select>
+            </label>
+        </section>
+        <button type="submit" id="btnMostra" onclick="anagaf()">Mostra nome</button>
+        <button type="submit" id="btnMostra2" onclick="eta()">Maggiorenne?</button>
+        <script>createOptionDay()</script>
+        <script>createOptionMonth()</script>
+        <script>createOptionYear()</script>
+    </form>
+</body>
+</html>
