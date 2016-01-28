@@ -44,38 +44,35 @@ function createOptionYear() {
     }
 }
 
+function optionAttr(giorno, i) {
+    var giornoDis = giorno[i];
+    var disattr = document.createAttribute("disabled");
+    disattr.value = "disabled";
+    giornoDis.setAttributeNode(disattr);
+}
+
 function disable() {
     var mese = parseInt(document.getElementById("cmbMese").value);
     var anno = parseInt(document.getElementById("cmbAnno").value);
     var thirty = new Array(3, 5, 8, 10);
     var giorno = document.getElementsByTagName("option");
     if (thirty.indexOf(mese) != -1) {
-        var giorno31 = giorno[30];
-        var disattr = document.createAttribute("disabled");
-        disattr.value = "disabled";
-        giorno31.setAttributeNode(disattr);
-        console.log(giorno31);
+        var giorno31 = optionAttr(giorno, 30);
     }
     else if (mese == 1){
         if (anno % 4 == 0) {
             for (i=29; i<31; i++){
-                var giornoDis = giorno[i];
-                var disattr2 = document.createAttribute("disabled");
-                disattr2.value = "disabled";
-                giornoDis.setAttributeNode(disattr2);
+                var giornoDis = optionAttr(giorno, i);
             }
         }
         else {
             for (i=28; i<31; i++){
-                var giornoDis = giorno[i];
-                var disattr3 = document.createAttribute("disabled");
-                disattr3.value = "disabled";
-                giornoDis.setAttributeNode(disattr3);;
+                var giornoDis = optionAttr(giorno, i);
             }
         }
     }
     else {
-        for (i = 28; i < 31; i++){
+        for (i=28; i<31; i++){
                 var giornoDis = giorno[i];
                 giornoDis.removeAttribute("disabled");
         }
@@ -122,11 +119,13 @@ function eta() {
     var data = new Date(Anno, Mese, Giorno);
     var dataAttuale = new Date();
     var diffDays = dataAttuale.getTime() - data.getTime();
-    var timeDif = (diffDays / (1000 * 3600 * 24 * 365));
-    if (timeDif > 18.0) {
+    var timeDif = (diffDays / (1000 * 3600 * 24));
+    if (timeDif > 6570.0) {
         alert("Sei maggiorenne.");
+        console.log(timeDif);
     }
     else {
         alert("Non sei maggiorenne!");
+        console.log(timeDif);
     }
 }
