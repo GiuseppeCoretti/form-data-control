@@ -3,9 +3,7 @@ function createOptionDay() {
     while (value < 32) {
         var select = document.getElementById("cmbGiorno");
         var option = document.createElement("option");
-        var valueAttr = document.createAttribute("value");
-        valueAttr.value = value;
-        option.setAttributeNode(valueAttr);
+        option.setAttribute("value",value);
         option.innerHTML = value;
         select.appendChild(option);
         value = value + 1;
@@ -18,9 +16,7 @@ function createOptionMonth() {
     while (value < 12) {
         var select = document.getElementById("cmbMese");
         var option = document.createElement("option");
-        var valueAttr = document.createAttribute("value");
-        valueAttr.value = value;
-        option.setAttributeNode(valueAttr);
+        option.setAttribute("value", value);
         option.innerHTML = mesi[value];
         select.appendChild(option);
         value = value + 1;
@@ -34,9 +30,7 @@ function createOptionYear() {
     while (anno > 0) {
         var select = document.getElementById("cmbAnno");
         var option = document.createElement("option");
-        var valueAttr = document.createAttribute("value");
-        valueAttr.value = value;
-        option.setAttributeNode(valueAttr);
+        option.setAttribute("value", value);
         option.innerHTML = value;
         select.appendChild(option);
         value = value - 1;
